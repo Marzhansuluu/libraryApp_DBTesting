@@ -64,7 +64,13 @@ public class UsersStepDefs {
 
     }
     @Then("the user changes current user status {string} to {string}")
-    public void the_user_changes_current_user_status_to(String string, String string2) {
+    public void the_user_changes_current_user_status_to(String inactive, String active) {
+            BrowserUtil.waitFor(1);
+            BrowserUtil.selectByVisibleText(usersPage.userStatusDropdown,inactive);
+
+            BrowserUtil.waitFor(1);
+            usersPage.editUser(email).click();
+
 
     }
 }
