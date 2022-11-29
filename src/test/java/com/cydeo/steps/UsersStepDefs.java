@@ -35,9 +35,15 @@ public class UsersStepDefs {
     @When("the user clicks save changes button")
     public void the_user_clicks_save_changes_button() {
 
+        usersPage.saveChanges.click();
+        System.out.println("----> Users "+email+" is deactivated");
+
     }
     @Then("{string} message should appear")
-    public void message_should_appear(String string) {
+    public void message_should_appear(String expectedMessage) {
+        // Maybe this message will appear dynamicly.In that case  you need to handle time issue with Explicit Wait
+        BrowserUtil.waitFor(1);
+        String actualMessage = usersPage.toastMessage.getText();
 
     }
     @Then("the users should see same status for related user in database")
