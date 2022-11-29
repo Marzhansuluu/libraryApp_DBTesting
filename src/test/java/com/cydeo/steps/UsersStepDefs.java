@@ -33,7 +33,7 @@ public class UsersStepDefs {
 
         BrowserUtil.waitFor(2);
 
-        expectedStatus=inactive;
+         expectedStatus=inactive;
     }
     @When("the user clicks save changes button")
     public void the_user_clicks_save_changes_button() {
