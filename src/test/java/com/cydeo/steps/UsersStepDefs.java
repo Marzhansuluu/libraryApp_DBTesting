@@ -25,14 +25,10 @@ public class UsersStepDefs {
 
         BrowserUtil.selectByVisibleText(usersPage.statusDropdown,inactive);
 
-
-
-
         email = usersPage.email.getAttribute("value");
         System.out.println("email = " + email);
 
         BrowserUtil.waitFor(2);
-
 
 
     }
