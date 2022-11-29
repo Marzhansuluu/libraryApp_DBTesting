@@ -65,11 +65,29 @@ public class UsersStepDefs {
     }
     @Then("the user changes current user status {string} to {string}")
     public void the_user_changes_current_user_status_to(String inactive, String active) {
+            // This step for switch users page to INACTIVE users
             BrowserUtil.waitFor(1);
             BrowserUtil.selectByVisibleText(usersPage.userStatusDropdown,inactive);
 
+            //to find current we need expand page.Thats why we created one more step to see all user in one page
+            // if you have more than 500 create loop to find your users (next page )
+            BrowserUtil.waitFor(1);
+            BrowserUtil.selectByVisibleText(usersPage.NumberOfUserDropdown,"500");
+
+
+            // We are gonna click editUser button for current user in INACTIVE PAGE
             BrowserUtil.waitFor(1);
             usersPage.editUser(email).click();
+
+            // We updated current user status INACTIVE to ACTIVE
+            BrowserUtil.waitFor(1);
+            BrowserUtil.selectByVisibleText(usersPage.statusDropdown,active);
+
+            //Click save changes
+            BrowserUtil.waitFor(1);
+            usersPage.saveChanges.click();
+
+            System.out.println("----> Users "+email+" is activated");
 
 
     }

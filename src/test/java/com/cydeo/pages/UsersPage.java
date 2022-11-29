@@ -27,6 +27,10 @@ public class UsersPage extends BasePage {
     @FindBy(css = ".dataTables_info")
     private WebElement userCount;
 
+    @FindBy(xpath = "//select[@name='tbl_users_length']\n")
+    public WebElement NumberOfUserDropdown;
+
+
     public WebElement editUser(String email) {
         String xpath = "//td[.='"+ email+ "']/..//a";
         return Driver.getDriver().findElement(By.xpath(xpath));
